@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -34,8 +36,14 @@ public class MainActivity extends AppCompatActivity {
         // 5 : Ham Random
         // 0 -> 5
 
-        double valueRandom = Math.floor(Math.random() * 6);
-        Log.d("BBB","Gia tri random " + valueRandom);
+//        double valueRandom = Math.floor(Math.random() * 6);
+//        Log.d("BBB","Gia tri random " + valueRandom);
+
+        // 5 -> 15
+        Random random = new Random();
+        int value = random.nextInt(15 - 5 + 1) + 5;
+        Log.d("BBB",value + "");
+
     }
 
 }
