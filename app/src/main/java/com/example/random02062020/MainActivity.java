@@ -12,12 +12,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // public , private , protected , default
-        int a = 5;
-        int b = 6;
-        int ketqua = tinhtong(a,b);
-        Log.d("BBB",ketqua + "");
+        // Builtin function
+
+        // 1 : Ham lam tron
+//        double a = 5.49;
+//        long newA = Math.round(a);
+//        Log.d("BBB","Ket qua cua a : " + newA );
+        // 2 : Ham lam tron len
+        double b = 5.01;
+        double newB = Math.ceil(b);
+        Log.d("BBB","Ket qua cua b " + newB);
     }
-    private int tinhtong(int value1 , int value2){
-        return value1 + value2;
-    }
+
 }
