@@ -40,9 +40,14 @@ public class MainActivity extends AppCompatActivity {
 //        Log.d("BBB","Gia tri random " + valueRandom);
 
         // 5 -> 15
-        Random random = new Random();
-        int value = random.nextInt(15 - 5 + 1) + 5;
-        Log.d("BBB",value + "");
+//        Random random = new Random();
+//        int value = random.nextInt(15 - 5 + 1) + 5;
+//        Log.d("BBB",value + "");
+
+        // Task 1 : Validation 2 edittext
+//            + Người dùng phải nhập số min và số max
+//            + Số max không được bé hơn số min (Nếu bé hơn thì so max = somin + 1 )
+
 
     }
 
