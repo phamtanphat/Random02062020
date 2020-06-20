@@ -19,9 +19,23 @@ public class MainActivity extends AppCompatActivity {
 //        long newA = Math.round(a);
 //        Log.d("BBB","Ket qua cua a : " + newA );
         // 2 : Ham lam tron len
-        double b = 5.01;
-        double newB = Math.ceil(b);
-        Log.d("BBB","Ket qua cua b " + newB);
+//        double b = 5.01;
+//        double newB = Math.ceil(b);
+//        Log.d("BBB","Ket qua cua b " + newB);
+        // 3 : Ham lam tron xuong
+//        double c = 5.99;
+//        double newC = Math.floor(c);
+//        Log.d("BBB","Ket qua cua c " + newC);
+        // 4 : Ham so sanh
+//        int a = 5;
+//        int b = 6;
+//        int solonnhat =  Math.max(a , b);
+//        Log.d("BBB","So lon nhat " + solonnhat);
+        // 5 : Ham Random
+        // 0 -> 5
+
+        double valueRandom = Math.floor(Math.random() * 6);
+        Log.d("BBB","Gia tri random " + valueRandom);
     }
 
 }
