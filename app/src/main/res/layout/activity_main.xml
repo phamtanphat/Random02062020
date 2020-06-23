@@ -39,13 +39,39 @@
         android:hint="Nhập số max"
         android:layout_width="match_parent"
         android:layout_height="70dp"/>
-    <Button
-        android:id="@+id/buttonRandom"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:text="Random"
-        android:layout_width="100dp"
-        android:layout_height="70dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            app:layout_constraintRight_toLeftOf="@id/buttonResetBound"
+            app:layout_constraintBottom_toTopOf="@id/buttonRandom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/buttonAddBound"
+            android:text="Add Bound"
+            android:layout_width="100dp"
+            android:layout_height="70dp"/>
+        <Button
+            app:layout_constraintLeft_toRightOf="@id/buttonAddBound"
+            app:layout_constraintBottom_toTopOf="@id/buttonRandom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/buttonResetBound"
+            android:text="Rest Bound"
+            android:layout_width="100dp"
+            android:layout_height="70dp"/>
+        <Button
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonResetBound"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/buttonRandom"
+            android:text="Random"
+            android:layout_width="100dp"
+            android:layout_height="70dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:textColor="#AB47BC"
         android:id="@+id/textviewKetqua"
