@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText mEdtSomin, mEdtSomax;
     Button mBtnRandom;
     TextView mTvKetqua;
-
+    String mTextKetqua = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,14 +93,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 // Xử lý random
                 // Ẩn keyboard
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.RESULT_UNCHANGED_SHOWN);
+//                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+//                        InputMethodManager.RESULT_UNCHANGED_SHOWN);
                 // Hiển thị theo dạng : 1 - 2 - 3 -
 
                 Random random = new Random();
                 int value = random.nextInt(soMax - soMin + 1) + soMin;
-                mTvKetqua.setText(String.valueOf(value));
+                mTextKetqua += value + " - ";
+                mTvKetqua.setText(mTextKetqua);
             }
         });
     }
