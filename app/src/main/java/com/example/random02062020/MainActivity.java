@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -54,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
 //        int value = random.nextInt(15 - 5 + 1) + 5;
 //        Log.d("BBB",value + "");
 
-        // Task 1 : Validation 2 edittext
+//         Task 1 : Validation 2 edittext
 //            + Người dùng phải nhập số min và số max
 //            + Số max không được bé hơn số min (Nếu bé hơn thì so max = somin + 1 )
+//         Task 2 : Xu ly random trong khoang input
+//              + Hiển thị theo dạng : 1 - 2 - 3 -
         mapView();
         setListener();
     }
@@ -82,13 +85,22 @@ public class MainActivity extends AppCompatActivity {
                 // Kiem tra neu so min lon hon hoac bang so max
                 // somax = somin
                 // smin = somin - 1
-
                 if (soMin >= soMax){
                     soMax = soMin;
                     soMin -= 1;
                     mEdtSomin.setText(String.valueOf(soMin));
                     mEdtSomax.setText(String.valueOf(soMax));
                 }
+                // Xử lý random
+                // Ẩn keyboard
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.RESULT_UNCHANGED_SHOWN);
+                // Hiển thị theo dạng : 1 - 2 - 3 -
+
+                Random random = new Random();
+                int value = random.nextInt(soMax - soMin + 1) + soMin;
+                mTvKetqua.setText(String.valueOf(value));
             }
         });
     }
