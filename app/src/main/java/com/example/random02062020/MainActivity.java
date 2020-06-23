@@ -2,19 +2,23 @@ package com.example.random02062020;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText mEdtSomin,mEdtSomax;
+    EditText mEdtSomin, mEdtSomax;
     Button mBtnRandom;
     TextView mTvKetqua;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +62,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListener() {
+        mBtnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textSoMax = mEdtSomax.getText().toString();
+                String textSoMin = mEdtSomin.getText().toString();
+
+                if (textSoMax.equals("") || textSoMin.equals("")) {
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Bạn chưa nhập đủ thông tin",
+                            Toast.LENGTH_SHORT)
+                            .show();
+                    return;
+                }
+                // Chuyen kieu du lieu thanh so
+                int soMax = Integer.parseInt(textSoMax);
+                int soMin = Integer.parseInt(textSoMin);
+                // Kiem tra neu so min lon hon hoac bang so max
+                // somax = somin
+                // smin = somin - 1
+
+                if (soMin >= soMax){
+                    soMax = soMin;
+                    soMin -= 1;
+                    mEdtSomin.setText(String.valueOf(soMin));
+                    mEdtSomax.setText(String.valueOf(soMax));
+                }
+            }
+        });
     }
 
     private void mapView() {
