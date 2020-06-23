@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText mEdtSomin,mEdtSomax;
+    Button mBtnRandom;
+    TextView mTvKetqua;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +53,18 @@ public class MainActivity extends AppCompatActivity {
         // Task 1 : Validation 2 edittext
 //            + Người dùng phải nhập số min và số max
 //            + Số max không được bé hơn số min (Nếu bé hơn thì so max = somin + 1 )
+        mapView();
+        setListener();
+    }
 
+    private void setListener() {
+    }
 
+    private void mapView() {
+        mBtnRandom = findViewById(R.id.buttonRandom);
+        mEdtSomin = findViewById(R.id.edittextSomin);
+        mEdtSomax = findViewById(R.id.edittextSomax);
+        mTvKetqua = findViewById(R.id.textviewKetqua);
     }
 
 }
