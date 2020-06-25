@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
+import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,11 +81,22 @@ public class MainActivity extends AppCompatActivity {
                     mEdtSomin.setText(String.valueOf(soMin));
                     mEdtSomax.setText(String.valueOf(soMax));
                 }
+                // TH khi max co gia tri 0 thi so min la -1
+                if (soMax == 0){
+                    soMin = 0;
+                    soMax = 1;
+                    mEdtSomin.setText(String.valueOf(soMin));
+                    mEdtSomax.setText(String.valueOf(soMax));
+                }
                 // Add value min to max
                 if (mBound.size() > 0) mBound.clear();
                 for (int i = soMin ; i <= soMax ; i++) {
                     mBound.add(i);
                 }
+                // Ẩn keyboard
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
                 // set disable view
                 setDisableView(mBtnBound);
@@ -118,18 +130,27 @@ public class MainActivity extends AppCompatActivity {
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mBound.size() > 0){
+                    int index = new Random().nextInt(mBound.size());
+//                    if (mBound.size() == 1){
+//                        mTextKetqua += mBound.get(index) ;
+//                    } else{
+//                        mTextKetqua += mBound.get(index) + " - ";
+//                    }
+                    mTextKetqua += mBound.get(index) + " - ";
+                    if (mBound.size() == 1){
+//                       mTextKetqua =  mTextKetqua.substring(0 , mTextKetqua.length() - 3);
+                        String[] arrayText = mTextKetqua.split(" - ");
+                        for (int i = 0; i < arrayText.length ; i++) {
+                            Log.d("BBB",arrayText[i]);
+                        }
+                    }
+                    mTvKetqua.setText(mTextKetqua);
+                    mBound.remove(index);
+                }else {
+                    Toast.makeText(MainActivity.this, "Ket thuc !!", Toast.LENGTH_SHORT).show();
+                }
 
-                // Xử lý random
-                // Ẩn keyboard
-//                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-//                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-//                        InputMethodManager.RESULT_UNCHANGED_SHOWN);
-                // Hiển thị theo dạng : 1 - 2 - 3 -
-
-//                Random random = new Random();
-//                int value = random.nextInt(soMax - soMin + 1) + soMin;
-//                mTextKetqua += value + " - ";
-//                mTvKetqua.setText(mTextKetqua);
             }
         });
     }
