@@ -123,8 +123,11 @@ public class MainActivity extends AppCompatActivity {
                 //view
                 mEdtSomin.setText("");
                 mEdtSomax.setText("");
-                //array
+                mTvKetqua.setText("");
+                //data
                 mBound.clear();
+                mTextKetqua = "";
+
             }
         });
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
@@ -139,11 +142,7 @@ public class MainActivity extends AppCompatActivity {
 //                    }
                     mTextKetqua += mBound.get(index) + " - ";
                     if (mBound.size() == 1){
-//                       mTextKetqua =  mTextKetqua.substring(0 , mTextKetqua.length() - 3);
-                        String[] arrayText = mTextKetqua.split(" - ");
-                        for (int i = 0; i < arrayText.length ; i++) {
-                            Log.d("BBB",arrayText[i]);
-                        }
+                       mTextKetqua =  mTextKetqua.substring(0 , mTextKetqua.length() - 3);
                     }
                     mTvKetqua.setText(mTextKetqua);
                     mBound.remove(index);
