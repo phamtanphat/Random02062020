@@ -12,7 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         mapView();
         initView();
         setListener();
+
+        ArrayList<String> arrayNames = new ArrayList<>();
+        arrayNames.add("Nguyen van A");
+        arrayNames.add("Nguyen van B");
+        arrayNames.add("Nguyen van C");
+
+        Log.d("BBB","");
     }
 
     private void initView() {
@@ -48,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setListener() {
-        mBtnRandom.setOnClickListener(new View.OnClickListener() {
+        mBtnBound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String textSoMax = mEdtSomax.getText().toString();
@@ -74,6 +86,13 @@ public class MainActivity extends AppCompatActivity {
                     mEdtSomin.setText(String.valueOf(soMin));
                     mEdtSomax.setText(String.valueOf(soMax));
                 }
+
+            }
+        });
+        mBtnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
                 // Xử lý random
                 // Ẩn keyboard
 //                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -81,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
 //                        InputMethodManager.RESULT_UNCHANGED_SHOWN);
                 // Hiển thị theo dạng : 1 - 2 - 3 -
 
-                Random random = new Random();
-                int value = random.nextInt(soMax - soMin + 1) + soMin;
-                mTextKetqua += value + " - ";
-                mTvKetqua.setText(mTextKetqua);
+//                Random random = new Random();
+//                int value = random.nextInt(soMax - soMin + 1) + soMin;
+//                mTextKetqua += value + " - ";
+//                mTvKetqua.setText(mTextKetqua);
             }
         });
     }
