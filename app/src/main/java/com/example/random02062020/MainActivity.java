@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Button mBtnRandom , mBtnBound , mBtnReset;
     TextView mTvKetqua;
     String mTextKetqua = "";
+    ArrayList<Integer> mBound = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,13 +44,6 @@ public class MainActivity extends AppCompatActivity {
         mapView();
         initView();
         setListener();
-
-        ArrayList<String> arrayNames = new ArrayList<>();
-        arrayNames.add("Nguyen van A");
-        arrayNames.add("Nguyen van B");
-        arrayNames.add("Nguyen van C");
-
-        Log.d("BBB","");
     }
 
     private void initView() {
@@ -86,7 +80,20 @@ public class MainActivity extends AppCompatActivity {
                     mEdtSomin.setText(String.valueOf(soMin));
                     mEdtSomax.setText(String.valueOf(soMax));
                 }
+                // Add value min to max
+                if (mBound.size() > 0) mBound.clear();
+                for (int i = soMin ; i <= soMax ; i++) {
+                    mBound.add(i);
+                }
 
+                // set disable view
+                setDisableView(mBtnBound);
+                setDisableView(mEdtSomax);
+                setDisableView(mEdtSomin);
+
+                // set enable
+                setEnableView(mBtnReset);
+                setEnableView(mBtnRandom);
             }
         });
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
