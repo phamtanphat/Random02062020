@@ -17,15 +17,13 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     EditText mEdtSomin, mEdtSomax;
-    Button mBtnRandom;
+    Button mBtnRandom , mBtnBound , mBtnReset;
     TextView mTvKetqua;
     String mTextKetqua = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 //        Tắt chức năng cho view (setEnabled)
 //        Nếu hiển thị addBound enable thì resetBound và random về enabled = false và ngược lại
 //        Task 1 : Xử lý nút addBound
@@ -38,8 +36,16 @@ public class MainActivity extends AppCompatActivity {
 //            + Xử random cho mảng
 //            + Hiển thị kết quả theo chuỗi như sau "1 - 2 - 3 - 4"
         mapView();
+        initView();
         setListener();
     }
+
+    private void initView() {
+        // Disable button random , reset
+        setDisableView(mBtnRandom);
+        setDisableView(mBtnReset);
+    }
+
 
     private void setListener() {
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
         mEdtSomin = findViewById(R.id.edittextSomin);
         mEdtSomax = findViewById(R.id.edittextSomax);
         mTvKetqua = findViewById(R.id.textviewKetqua);
+        mBtnBound = findViewById(R.id.buttonAddBound);
+        mBtnReset = findViewById(R.id.buttonResetBound);
+    }
+    private void setEnableView(View v) {
+        v.setEnabled(true);
+    }
+    private void setDisableView(View v) {
+        v.setEnabled(false);
     }
 
 }

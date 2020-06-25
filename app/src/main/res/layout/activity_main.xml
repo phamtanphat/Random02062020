@@ -58,7 +58,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:id="@+id/buttonResetBound"
-            android:text="Rest Bound"
+            android:text="Reset Bound"
             android:layout_width="100dp"
             android:layout_height="70dp"/>
         <Button
