@@ -96,6 +96,25 @@ public class MainActivity extends AppCompatActivity {
                 setEnableView(mBtnRandom);
             }
         });
+
+        mBtnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Enable view
+                setEnableView(mBtnReset);
+                setEnableView(mBtnRandom);
+                setEnableView(mEdtSomax);
+                setEnableView(mEdtSomin);
+                setEnableView(mBtnBound);
+
+                //reset data
+                //view
+                mEdtSomin.setText("");
+                mEdtSomax.setText("");
+                //array
+                mBound.clear();
+            }
+        });
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
